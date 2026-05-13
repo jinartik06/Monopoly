@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MONOPOLY: New World in Armenia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-tech">
+  <div class="fx-grid"></div>
+  <div class="fx-noise"></div>
+  <div class="scene-backdrop"></div>
+  <div id="purchase-burst" class="purchase-burst" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="global-topbar">
+      <div class="brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <p class="eyebrow" data-i18n="top_tag">economic warfare simulator</p>
+          <h1>MONOPOLY: New World in Armenia</h1>
+        </div>
+      </div>
+
+      <div class="topbar-panel">
+        <div class="toolbar-group">
+          <label class="toolbar-control">
+            <span data-i18n="lang_label">Language</span>
+            <select id="language-select">
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+              <option value="hy">Հայերեն</option>
+            </select>
+          </label>
+          <label class="toolbar-control">
+            <span data-i18n="theme_label">Theme</span>
+            <select id="theme-select">
+              <option value="tech" data-i18n="theme_tech">Tech</option>
+              <option value="forest" data-i18n="theme_forest">Forest</option>
+              <option value="ocean" data-i18n="theme_ocean">Ocean</option>
+              <option value="dawn" data-i18n="theme_dawn">Dawn</option>
+              <option value="gradient" data-i18n="theme_gradient">Gradient</option>
+            </select>
+          </label>
+        </div>
+        <nav class="topbar-actions" id="topbar-actions"></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="view active" data-view="landing">
+        <div class="hero-layout">
+          <div class="hero-copy glass-card">
+            <p class="eyebrow" data-i18n="hero_eyebrow">smart strategic board game</p>
+            <h2 data-i18n="hero_title">Don’t play the market. Rebuild it under your command.</h2>
+            <p class="hero-text" data-i18n="hero_text">
+              Startups, clouds, drones, cybersecurity, capital and data. This is a strategic economy where pressure,
+              timing and control matter more than luck.
+            </p>
+            <div class="hero-actions">
+              <button class="accent-button large" data-nav="register" data-i18n="hero_start">Start Empire</button>
+              <button class="ghost-button large" data-nav="login" data-i18n="hero_login">Enter HQ</button>
+            </div>
+            <div class="hero-stats">
+              <article class="metric-card">
+                <span data-i18n="hero_modes">Modes</span>
+                <strong>Solo AI / Local 4P</strong>
+              </article>
+              <article class="metric-card">
+                <span data-i18n="hero_style">Atmosphere</span>
+                <strong data-i18n="hero_style_value">Tech Thriller</strong>
+              </article>
+              <article class="metric-card">
+                <span data-i18n="hero_goal">Goal</span>
+                <strong data-i18n="hero_goal_value">Total Monopoly</strong>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-stage glass-card">
+            <div class="stage-radar"></div>
+            <div class="stage-orbit orbit-1"></div>
+            <div class="stage-orbit orbit-2"></div>
+            <div class="stage-core">
+              <span data-i18n="market_core">MARKET CORE</span>
+              <strong>ARMENIA NODE</strong>
+            </div>
+            <div class="stage-pill pill-a">AI CLOUD</div>
+            <div class="stage-pill pill-b">CRYPTO HUB</div>
+            <div class="stage-pill pill-c">CYBER VAULT</div>
+            <div class="stage-pill pill-d">DRONE GRID</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view auth-view" data-view="login">
+        <div class="auth-layout">
+          <div class="auth-copy glass-card">
+            <p class="eyebrow" data-i18n="login_eyebrow">secure access</p>
+            <h2 data-i18n="login_title">Enter the market control layer</h2>
+            <p data-i18n="login_text">Sign in to continue campaigns, change the atmosphere and return to your last game.</p>
+          </div>
+
+          <form class="auth-card glass-card" id="login-form">
+            <h3 data-i18n="login_form_title">Sign In</h3>
+            <label>
+              <span data-i18n="nickname">Nickname</span>
+              <input type="text" name="username" placeholder="Founder Prime" required>
+            </label>
+            <label>
+              <span data-i18n="password">Password</span>
+              <input type="password" name="password" placeholder="••••••••" required>
+            </label>
+            <button type="submit" class="accent-button full-width" data-i18n="login_button">Sign In</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="view auth-view" data-view="register">
+        <div class="auth-layout">
+          <div class="auth-copy glass-card">
+            <p class="eyebrow" data-i18n="register_eyebrow">new founder</p>
+            <h2 data-i18n="register_title">Create an account and join the next digital hierarchy</h2>
+            <p data-i18n="register_text">Local registration for now, but the interface is already built as a future flagship release.</p>
+          </div>
+
+          <form class="auth-card glass-card" id="register-form">
+            <h3 data-i18n="register_form_title">Registration</h3>
+            <label>
+              <span data-i18n="nickname">Nickname</span>
+              <input type="text" name="username" placeholder="Ararat Vortex" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="founder@market.ai" required>
+            </label>
+            <label>
+              <span data-i18n="password">Password</span>
+              <input type="password" name="password" placeholder="••••••••" required>
+            </label>
+            <button type="submit" class="accent-button full-width" data-i18n="register_button">Create Profile</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="view" data-view="lobby">
+        <div class="lobby-layout">
+          <section class="glass-card profile-ribbon">
+            <div>
+              <p class="eyebrow" data-i18n="founder_profile">founder profile</p>
+              <h2 id="profile-name">Founder Prime</h2>
+              <p id="profile-line"></p>
+            </div>
+            <div class="ribbon-actions">
+              <button class="accent-button" id="new-game-button" data-i18n="new_game">New Game</button>
+              <button class="ghost-button" id="continue-game-button" data-i18n="continue_game">Continue</button>
+              <button class="ghost-button" id="logout-button" data-i18n="logout">Logout</button>
+            </div>
+          </section>
+
+          <div class="lobby-grid">
+            <section class="glass-card rooms-card">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow" data-i18n="rooms">rooms</p>
+                  <h2 data-i18n="lobby_title">Lobby Command Node</h2>
+                </div>
+              </div>
+              <div id="room-list" class="room-list"></div>
+            </section>
+
+            <section class="glass-card feed-preview">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow" data-i18n="market_feed">market feed</p>
+                  <h2 data-i18n="world_feed">World Feed</h2>
+                </div>
+              </div>
+              <div id="feed-preview" class="feed-preview-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" data-view="setup">
+        <div class="setup-layout">
+          <form class="setup-card glass-card" id="setup-form">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow" data-i18n="new_campaign">new campaign</p>
+                <h2 data-i18n="setup_title">Build the next market war</h2>
+              </div>
+            </div>
+
+            <div class="setup-grid">
+              <label>
+                <span data-i18n="founder_name">Founder Name</span>
+                <input type="text" name="playerName" maxlength="24" required>
+              </label>
+              <label>
+                <span data-i18n="mode">Mode</span>
+                <select name="mode" id="mode-select">
+                  <option value="single" data-i18n="single_vs_ai">Single vs AI</option>
+                  <option value="local" data-i18n="local_mode">Up to 4 on one device</option>
+                </select>
+              </label>
+              <label>
+                <span data-i18n="players_count">Players Count</span>
+                <select name="playerCount">
+                  <option value="2">2</option>
+                  <option value="3" selected>3</option>
+                  <option value="4">4</option>
+                </select>
+              </label>
+              <label>
+                <span data-i18n="ai_difficulty">AI Difficulty</span>
+                <select name="aiDifficulty">
+                  <option value="easy" data-i18n="easy">Easy</option>
+                  <option value="medium" selected data-i18n="medium">Medium</option>
+                  <option value="devil" data-i18n="devil">Devil</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="setup-actions">
+              <button type="submit" class="accent-button" data-i18n="launch_campaign">Launch Campaign</button>
+              <button type="button" class="ghost-button" data-nav="lobby" data-i18n="back_to_lobby">Back to Lobby</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="view" data-view="game">
+        <div class="overview-ribbon glass-card">
+          <article class="overview-card">
+            <span data-i18n="current_player">Current Player</span>
+            <strong id="overview-player">-</strong>
+          </article>
+          <article class="overview-card">
+            <span data-i18n="cash">Cash</span>
+            <strong id="overview-cash">$0</strong>
+          </article>
+          <article class="overview-card">
+            <span data-i18n="income">Income</span>
+            <strong id="overview-income">$0</strong>
+          </article>
+          <article class="overview-card">
+            <span data-i18n="expenses">Expenses</span>
+            <strong id="overview-expenses">$0</strong>
+          </article>
+          <article class="overview-card">
+            <span data-i18n="position">Position</span>
+            <strong id="overview-position">#0</strong>
+          </article>
+          <article class="overview-card">
+            <span data-i18n="available_actions">Actions</span>
+            <strong id="overview-actions">-</strong>
+          </article>
+        </div>
+
+        <div class="game-layout">
+          <section class="glass-card command-deck">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow" data-i18n="command">command</p>
+                <h2 id="turn-title">-</h2>
+              </div>
+              <div class="currency-chip" id="round-chip">-</div>
+            </div>
+
+            <div class="status-bar">
+              <div class="status-pulse"></div>
+              <span id="status-line">-</span>
+            </div>
+
+            <div class="dice-scene">
+              <div class="die" id="die-1">-</div>
+              <div class="die" id="die-2">-</div>
+              <div class="dice-readout" id="dice-total">-</div>
+            </div>
+
+            <div class="action-wheel" id="action-wheel">
+              <button class="wheel-button accent-button" id="roll-button" data-i18n="roll_dice">Roll</button>
+              <button class="wheel-button ghost-button" id="buy-button" data-i18n="buy_asset">Buy</button>
+              <button class="wheel-button ghost-button" id="upgrade-button" data-i18n="upgrade_asset">Upgrade</button>
+              <button class="wheel-button ghost-button" id="invest-button" data-i18n="invest">Invest</button>
+              <button class="wheel-button ghost-button" id="bail-button" data-i18n="leave_lab">Leave Lab</button>
+              <button class="wheel-button ghost-button" id="end-turn-button" data-i18n="end_turn">End Turn</button>
+              <button class="wheel-button ghost-button" id="open-deal-modal-button">Deal Room</button>
+              <button class="wheel-button ghost-button" id="pressure-button" data-i18n="apply_pressure">Apply Pressure</button>
+            </div>
+
+            <div class="tile-focus" id="tile-focus"></div>
+
+            <section class="deal-desk glass-card">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow" data-i18n="deal_desk">deal desk</p>
+                  <h3 data-i18n="negotiations">Negotiations</h3>
+                </div>
+              </div>
+              <p>Открывай переговорную комнату, чтобы отправлять офферы на продажу, выкуп и переговорное давление.</p>
+              <div id="pending-deals" class="pending-deals"></div>
+            </section>
+          </section>
+
+          <section class="board-shell glass-card">
+            <div class="board-grid" id="board-grid"></div>
+            <div class="board-core">
+              <div class="core-ring ring-a"></div>
+              <div class="core-ring ring-b"></div>
+              <div class="core-panel">
+                <p class="eyebrow" data-i18n="market_reactor">market reactor</p>
+                <h2>ARMENIA GRID</h2>
+                <p id="center-summary"></p>
+                <div class="position-tracker" id="position-tracker"></div>
+                <button class="accent-button" id="back-to-lobby-button" data-i18n="to_lobby">To Lobby</button>
+              </div>
+            </div>
+          </section>
+
+          <aside class="side-stack">
+            <section class="glass-card player-stack" id="players-panel"></section>
+
+            <section class="glass-card asset-gallery">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow" data-i18n="cards">cards</p>
+                  <h2 data-i18n="asset_cards">Asset Cards</h2>
+                </div>
+              </div>
+              <div class="art-grid" id="art-grid"></div>
+            </section>
+
+            <section class="glass-card feed-stack">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow" data-i18n="live_feed">live feed</p>
+                  <h2 data-i18n="battle_feed">Battle Feed</h2>
+                </div>
+              </div>
+              <div id="event-log" class="event-log"></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="deal-dialog" class="deal-dialog">
+    <div class="deal-modal glass-card">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-i18n="deal_desk">deal desk</p>
+          <h2 data-i18n="negotiations">Negotiations</h2>
+        </div>
+        <button class="ghost-button" id="close-deal-modal-button">×</button>
+      </div>
+      <div class="deal-grid">
+        <label>
+          <span>Deal Type</span>
+          <select id="deal-type">
+            <option value="sell">Sell Asset</option>
+            <option value="buyout">Buyout Offer</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="target_player">Target Player</span>
+          <select id="deal-target"></select>
+        </label>
+        <label>
+          <span data-i18n="asset_to_sell">Asset</span>
+          <select id="deal-asset"></select>
+        </label>
+        <label>
+          <span data-i18n="price_offer">Price Offer</span>
+          <input type="number" id="deal-price" min="50" step="10" value="200">
+        </label>
+      </div>
+      <div class="deal-actions">
+        <button class="accent-button full-width" id="send-deal-button" data-i18n="send_deal">Send Deal</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</body>
+</html>
